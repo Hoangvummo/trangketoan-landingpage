@@ -28,7 +28,7 @@ export default function LandingPage() {
     digital: [
       { name: "Chữ Ký Số (CA)", price: "1.200.000đ", features: ["Thời hạn 3 năm ưu đãi", "Đại lý cấp 1 Viettel/VNPT", "Hỗ trợ cài đặt 24/7", "Bảo hành trọn đời"] },
       { name: "Hóa Đơn Điện Tử", price: "325.000đ", features: ["Gói 100 hóa đơn khởi tạo", "Thiết kế mẫu HĐ miễn phí", "Lưu trữ dữ liệu 10 năm", "Tích hợp PM kế toán"] },
-      { name: "Bảo Hiểm Xã Hội", price: "2.000.000đ", features: ["Đăng ký mã đơn vị lần đầu", "Báo tăng/giảm lao động", "Chốt sổ bảo hiểm", "Tư vấn luật lao động"] }
+      { name: "BHXH Lần Đầu", price: "2.000.000đ", features: ["Đăng ký mã đơn vị lần đầu", "Báo tăng/giảm lao động", "Chốt sổ bảo hiểm", "Tư vấn luật lao động"] }
     ]
   };
 
@@ -48,13 +48,13 @@ export default function LandingPage() {
       items: ["Thành lập công ty VN & FDI", "Thay đổi đăng ký kinh doanh", "Thành lập Chi nhánh/Văn phòng", "Giải thể & Tạm ngừng KD"]
     },
     {
-      group: "Kế Toán & Thuế",
+      group: "Kế Toán & Thuế Chuyên Sâu",
       icon: <Calculator className="w-10 h-10" />,
       color: "orange",
       items: ["Dịch vụ kế toán thuế trọn gói", "Dọn dẹp sổ sách kế toán", "Quyết toán thuế & Hoàn thuế", "Kế toán Hộ kinh doanh cá thể"]
     },
     {
-      group: "Tiện Ích Số",
+      group: "Tiện Ích Số & Giấy Phép Con",
       icon: <Zap className="w-10 h-10" />,
       color: "teal",
       items: ["Chữ ký số & Hóa đơn điện tử", "Bảo hiểm xã hội & Lao động", "Giấy phép Vệ sinh ATTP", "Giấy phép PCCC & An ninh"]
@@ -63,77 +63,81 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-[#F7F9FB] text-[#003366] font-sans antialiased">
-      {/* NAVIGATION */}
+      {/* 1. NAVIGATION */}
       <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200 py-4 px-6">
         <div className="container mx-auto flex justify-between items-center">
-          <div className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3">
             <div className="w-12 h-12 bg-[#003366] rounded-2xl flex items-center justify-center text-white shadow-lg">
               <span className="text-2xl font-black">T</span>
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col text-left">
               <span className="text-xl font-black leading-none tracking-tight">TRANG KẾ TOÁN</span>
               <span className="text-[10px] font-bold text-blue-600 uppercase tracking-widest mt-1">World-Class Service</span>
             </div>
-          </div>
+          </Link>
           <div className="hidden lg:flex gap-8 font-bold text-slate-600 uppercase text-xs tracking-widest">
-            <Link href="#services" className="hover:text-blue-600">Dịch vụ</Link>
-            <Link href="#pricing" className="hover:text-blue-600">Bảng giá</Link>
-            <Link href="#why-us" className="hover:text-blue-600">Tại sao chọn?</Link>
-            <Link href="https://zalo.me/0777868678" className="bg-[#003366] text-white px-6 py-2.5 rounded-full flex items-center gap-2 hover:bg-blue-800 transition-all shadow-md">
+            <Link href="#services" className="hover:text-blue-600 transition-colors">Dịch vụ</Link>
+            <Link href="#pricing" className="hover:text-blue-600 transition-colors">Bảng giá</Link>
+            <Link href="#why-us" className="hover:text-blue-600 transition-colors">Tại sao chọn?</Link>
+            <Link href="https://zalo.me/0777868678" className="bg-[#003366] text-white px-6 py-2.5 rounded-full flex items-center gap-2 hover:bg-blue-800 transition-all shadow-md active:scale-95">
               <MessageSquare size={16} /> 0777 868 678
             </Link>
           </div>
         </div>
       </nav>
 
-      {/* HERO SECTION */}
+      {/* 2. HERO SECTION */}
       <section className="pt-40 pb-24 bg-white relative overflow-hidden text-center">
         <div className="container mx-auto px-6 relative z-10">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-xs font-black tracking-widest uppercase border border-blue-100 mb-8">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-xs font-black tracking-widest uppercase border border-blue-100 mb-8">
             <Sparkles size={14} className="animate-pulse" /> Đã phục vụ hơn 2000+ Doanh nghiệp 2026
-          </div>
-          <h1 className="text-5xl md:text-8xl font-black text-[#003366] leading-[1.1] tracking-tight mb-8">
+          </motion.div>
+          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-5xl md:text-8xl font-black text-[#003366] leading-[1.1] tracking-tight mb-8">
             Pháp Lý Vững Vàng <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-teal-500 italic">Bứt Phá Kinh Doanh</span>
-          </h1>
-          <p className="text-xl md:text-2xl text-slate-500 max-w-3xl mx-auto mb-12 font-medium leading-relaxed italic">
+          </motion.h1>
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-xl md:text-2xl text-slate-500 max-w-3xl mx-auto mb-12 font-medium leading-relaxed italic">
             Trang Kế Toán - Giải pháp Kế toán thuế & Pháp lý doanh nghiệp số 1 cho chủ doanh nghiệp thông thái.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          </motion.p>
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="https://zalo.me/0777868678" className="bg-blue-600 text-white px-10 py-5 rounded-[24px] font-black text-lg hover:bg-blue-700 transition-all shadow-2xl shadow-blue-600/30 flex items-center justify-center gap-2 group">
-              Tư Vấn Miễn Phí <ChevronRight size={20} />
+              Tư Vấn Miễn Phí <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link href="#services" className="bg-white border-2 border-slate-200 text-slate-700 px-10 py-5 rounded-[24px] font-black text-lg hover:bg-slate-50 transition-all">Khám Phá Dịch Vụ</Link>
-          </div>
+          </motion.div>
+        </div>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-0 opacity-20 pointer-events-none">
+          <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-blue-100 rounded-full blur-[120px]"></div>
+          <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-teal-50 rounded-full blur-[120px]"></div>
         </div>
       </section>
 
-      {/* BENTO SERVICES */}
+      {/* 3. BENTO SERVICES */}
       <section id="services" className="py-24 bg-slate-50">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-6xl font-black text-[#003366] mb-20 tracking-tighter uppercase">Danh Mục Dịch Vụ 2026</h2>
+          <h2 className="text-4xl md:text-6xl font-black text-[#003366] mb-20 tracking-tighter uppercase tracking-tight">Danh Mục Dịch Vụ 2026</h2>
           <div className="grid lg:grid-cols-3 gap-8">
             {mainServices.map((group, i) => (
-              <div key={i} className="bg-white p-10 rounded-[48px] border border-white shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col text-left">
-                <div className={`w-20 h-20 bg-slate-50 rounded-3xl mb-8 flex items-center justify-center text-blue-600 shadow-inner`}>
+              <div key={i} className="bg-white p-10 rounded-[48px] border border-white shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col text-left group">
+                <div className={`w-20 h-20 bg-slate-50 rounded-3xl mb-8 flex items-center justify-center text-blue-600 shadow-inner group-hover:scale-110 transition-all`}>
                   {group.icon}
                 </div>
                 <h3 className="text-2xl font-black mb-8 text-[#003366] uppercase tracking-tighter">{group.group}</h3>
                 <div className="space-y-4 flex-1">
                   {group.items.map((item, idx) => (
-                    <div key={idx} className="flex items-center gap-3 text-slate-600 font-bold text-sm leading-tight border-b border-slate-50 pb-3">
+                    <div key={idx} className="flex items-center gap-3 text-slate-600 font-bold text-sm leading-tight border-b border-slate-50 pb-3 hover:text-blue-600 transition-colors">
                       <CheckCircle2 size={18} className="text-blue-600 shrink-0" /> {item}
                     </div>
                   ))}
                 </div>
-                <Link href="https://zalo.me/0777868678" className="text-blue-600 font-black text-xs uppercase tracking-widest mt-8 flex items-center gap-2">Tư vấn báo giá <ArrowRight size={14} /></Link>
+                <Link href="https://zalo.me/0777868678" className="text-blue-600 font-black text-xs uppercase tracking-widest mt-8 flex items-center gap-2 group-hover:gap-4 transition-all">Tư vấn báo giá <ArrowRight size={14} /></Link>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* PRICING TABLE (TABBED) */}
+      {/* 4. PRICING TABLE (TABBED) */}
       <section id="pricing" className="py-24 bg-white">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-6xl font-black text-[#003366] mb-12 uppercase tracking-tighter">Bảng Giá Minh Bạch</h2>
@@ -149,13 +153,13 @@ export default function LandingPage() {
           <div className="grid md:grid-cols-3 gap-8">
             <AnimatePresence mode="wait">
               {pricingData[activeTab as keyof typeof pricingData].map((pkg, i) => (
-                <motion.div key={`${activeTab}-${i}`} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} className={`p-10 rounded-[48px] border-2 ${i === 1 ? 'border-blue-600 bg-blue-50/20' : 'border-slate-100 bg-white'} space-y-8 flex flex-col text-left`}>
+                <motion.div key={`${activeTab}-${i}`} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} className={`p-10 rounded-[48px] border-2 ${i === 1 ? 'border-blue-600 bg-blue-50/20' : 'border-slate-100 bg-white'} space-y-8 flex flex-col text-left hover:shadow-2xl transition-all`}>
                   <h4 className="text-xl font-black uppercase text-[#003366] tracking-tighter">{pkg.name}</h4>
                   <p className="text-4xl font-black text-blue-600">{pkg.price}</p>
                   <ul className="space-y-4 font-bold text-slate-600 text-sm flex-1">
                     {pkg.features.map((f, idx) => (<li key={idx} className="flex items-start gap-3"><CheckCircle2 size={18} className="text-blue-600 shrink-0 mt-0.5" /> {f}</li>))}
                   </ul>
-                  <Link href="https://zalo.me/0777868678" className={`w-full py-4 rounded-2xl font-black text-center block transition-all ${i === 1 ? 'bg-blue-600 text-white shadow-xl' : 'bg-[#003366] text-white'}`}>Đăng Ký Tư Vấn</Link>
+                  <Link href="https://zalo.me/0777868678" className={`w-full py-4 rounded-2xl font-black text-center block transition-all ${i === 1 ? 'bg-blue-600 text-white shadow-xl hover:bg-blue-700' : 'bg-[#003366] text-white hover:bg-blue-800'}`}>Đăng Ký Tư Vấn</Link>
                 </motion.div>
               ))}
             </AnimatePresence>
@@ -163,18 +167,15 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* PROCESS */}
+      {/* 5. PROCESS */}
       <section id="process" className="py-24 bg-slate-50">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-20 space-y-4 uppercase tracking-tighter">
-            <h2 className="text-4xl md:text-6xl font-black">Quy Trình Tác Chiến</h2>
-            <div className="w-24 h-2 bg-[#FFD700] mx-auto rounded-full"></div>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-6 text-center">
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-20">Quy Trình Tác Chiến</h2>
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
             {steps.map((step, i) => (
-              <div key={i} className="bg-white p-8 rounded-[40px] border border-slate-100 space-y-4 shadow-sm hover:shadow-xl transition-all relative group">
-                <div className="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-all">{React.cloneElement(step.icon as React.ReactElement, { size: 32 })}</div>
-                <h4 className="font-black text-sm">{step.title}</h4>
+              <div key={i} className="bg-white p-8 rounded-[40px] border border-slate-100 space-y-4 shadow-sm hover:shadow-xl transition-all relative group flex flex-col items-center">
+                <div className="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-all">{React.cloneElement(step.icon as React.ReactElement, { size: 32 })}</div>
+                <h4 className="font-black text-sm uppercase">{step.title}</h4>
                 <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest leading-relaxed">{step.desc}</p>
                 <div className="absolute -top-3 -left-3 w-10 h-10 bg-[#FFD700] rounded-full flex items-center justify-center font-black text-[#003366] shadow-md border-4 border-white">0{i+1}</div>
               </div>
@@ -183,12 +184,12 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* WHY US / TESTIMONIALS */}
+      {/* 6. WHY US / TESTIMONIALS */}
       <section id="why-us" className="py-24 bg-[#003366] text-white rounded-[60px] mx-4 md:mx-10 mb-24 relative overflow-hidden">
         <div className="container mx-auto px-10 relative z-10 grid lg:grid-cols-2 gap-20 items-center">
           <div className="space-y-12">
-            <h2 className="text-4xl md:text-7xl font-black leading-tight tracking-tighter uppercase">Tại sao chọn <br /><span className="text-[#FFD700]">Trang Kế Toán?</span></h2>
-            <div className="grid sm:grid-cols-2 gap-10">
+            <h2 className="text-4xl md:text-7xl font-black leading-tight tracking-tighter uppercase text-left">Tại sao chọn <br /><span className="text-[#FFD700]">Trang Kế Toán?</span></h2>
+            <div className="grid sm:grid-cols-2 gap-10 text-left">
               {[
                 { icon: <ShieldCheck />, title: "Chính Xác 100%", desc: "Bảo hiểm trách nhiệm nghề nghiệp cho mọi sai sót." },
                 { icon: <Clock />, title: "Siêu Tốc", desc: "Hồ sơ soạn thảo trong 24h, ký hồ sơ tận nhà." },
@@ -203,29 +204,29 @@ export default function LandingPage() {
               ))}
             </div>
           </div>
-          <div className="bg-white/5 border border-white/10 p-12 rounded-[48px] backdrop-blur-3xl space-y-8 relative">
+          <div className="bg-white/5 border border-white/10 p-12 rounded-[48px] backdrop-blur-3xl space-y-8 relative text-left">
             <div className="absolute top-8 right-10 text-gold-500 opacity-20"><Star size={100} fill="currentColor" /></div>
             <div className="flex gap-1 text-gold-500"><Star size={20} fill="currentColor" /><Star size={20} fill="currentColor" /><Star size={20} fill="currentColor" /><Star size={20} fill="currentColor" /><Star size={20} fill="currentColor" /></div>
             <p className="text-2xl font-medium leading-relaxed italic text-blue-50">"Dịch vụ vô cùng chuyên nghiệp. Hồ sơ thành lập công ty của tôi được hoàn tất siêu tốc, nhân viên mang hồ sơ đến tận nhà ký rất tiện lợi."</p>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 text-left">
               <div className="w-14 h-14 bg-blue-500 rounded-full border-2 border-[#FFD700]" />
-              <div><p className="font-black text-lg">Master Lee</p><p className="text-xs font-bold text-blue-300 uppercase tracking-widest uppercase">CEO Tech Solutions</p></div>
+              <div><p className="font-black text-lg">Master Lee</p><p className="text-xs font-bold text-blue-300 uppercase tracking-widest">CEO Tech Solutions</p></div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CONTACT FORM */}
+      {/* 7. CONTACT FORM */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <div className="max-w-5xl mx-auto bg-slate-50 rounded-[60px] overflow-hidden shadow-2xl flex flex-col md:flex-row border border-slate-100">
-            <div className="bg-[#003366] p-12 md:w-2/5 text-white space-y-8 relative overflow-hidden">
+            <div className="bg-[#003366] p-12 md:w-2/5 text-white space-y-8 relative overflow-hidden text-left">
               <div className="relative z-10 space-y-8">
                 <h3 className="text-3xl font-black uppercase tracking-tighter">Liên Hệ Tư Vấn</h3>
-                <p className="text-blue-100/70 font-medium leading-relaxed">Hãy để chúng tôi giúp bạn giải quyết mọi khó khăn về Thuế & Pháp lý.</p>
+                <p className="text-blue-100/70 font-medium leading-relaxed text-sm">Hãy để chúng tôi giúp bạn giải quyết mọi khó khăn về Thuế & Pháp lý.</p>
                 <div className="space-y-6 pt-8 font-bold">
-                  <div className="flex items-center gap-4"><Phone className="text-[#FFD700]" /> 0777 868 678</div>
-                  <div className="flex items-center gap-4"><Mail className="text-[#FFD700]" /> support@trangketoan.com</div>
+                  <div className="flex items-center gap-4 hover:text-gold-500 transition-colors cursor-pointer"><Phone className="text-[#FFD700]" /> 0777 868 678</div>
+                  <div className="flex items-center gap-4 hover:text-gold-500 transition-colors cursor-pointer"><Mail className="text-[#FFD700]" /> support@trangketoan.com</div>
                   <div className="flex items-center gap-4"><MapPin className="text-[#FFD700]" /> TP. Hồ Chí Minh & Toàn Quốc</div>
                 </div>
               </div>
@@ -235,20 +236,20 @@ export default function LandingPage() {
               <div className="grid sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Họ và tên</label>
-                  <input type="text" className="w-full bg-white border border-slate-200 px-6 py-4 rounded-2xl focus:border-blue-600 outline-none font-bold" placeholder="Master Lee" />
+                  <input type="text" className="w-full bg-white border border-slate-200 px-6 py-4 rounded-2xl focus:border-blue-600 outline-none font-bold transition-all" placeholder="Master Lee" />
                 </div>
                 <div className="space-y-2">
                   <label className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Số điện thoại</label>
-                  <input type="text" className="w-full bg-white border border-slate-200 px-6 py-4 rounded-2xl focus:border-blue-600 outline-none font-bold" placeholder="0777 xxx xxx" />
+                  <input type="text" className="w-full bg-white border border-slate-200 px-6 py-4 rounded-2xl focus:border-blue-600 outline-none font-bold transition-all" placeholder="0777 xxx xxx" />
                 </div>
               </div>
-              <div className="space-y-2">
+              <div className="space-y-2 text-left">
                 <label className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Dịch vụ quan tâm</label>
-                <select className="w-full bg-white border border-slate-200 px-6 py-4 rounded-2xl outline-none font-bold appearance-none"><option>Thành lập doanh nghiệp</option><option>Kế toán thuế trọn gói</option><option>Tiện ích số & Chữ ký số</option></select>
+                <select className="w-full bg-white border border-slate-200 px-6 py-4 rounded-2xl outline-none font-bold appearance-none cursor-pointer"><option>Thành lập doanh nghiệp</option><option>Kế toán thuế trọn gói</option><option>Tiện ích số & Chữ ký số</option></select>
               </div>
-              <div className="space-y-2">
+              <div className="space-y-2 text-left">
                 <label className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Lời nhắn</label>
-                <textarea rows={4} className="w-full bg-white border border-slate-200 px-6 py-4 rounded-2xl outline-none font-bold resize-none" placeholder="Bệ hạ cần hỗ trợ gì ạ?"></textarea>
+                <textarea rows={4} className="w-full bg-white border border-slate-200 px-6 py-4 rounded-2xl outline-none font-bold resize-none transition-all" placeholder="Bệ hạ cần hỗ trợ gì ạ?"></textarea>
               </div>
               <button className="w-full bg-blue-600 text-white py-5 rounded-2xl font-black text-xl hover:bg-blue-700 shadow-xl shadow-blue-200 flex items-center justify-center gap-3 transition-all active:scale-95">Gửi Yêu Cầu <Send size={24} /></button>
             </div>
